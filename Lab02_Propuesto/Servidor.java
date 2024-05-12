@@ -6,9 +6,11 @@ import java.time.Instant;
 
 public class Servidor {
     public static void main(String[] args) {
+    	// Declaramos el ServerSocket fuera del bloque try-catch para asegurarnos de que pueda ser cerrado en cualquier caso.
+    	ServerSocket servidor = null; 
         try {
             // Crea un servidor en el puerto 5000
-            ServerSocket servidor = new ServerSocket(5000);
+            servidor = new ServerSocket(5000);
             System.out.println("Servidor listo para recibir conexiones...");
             
             while (true) {
@@ -31,6 +33,14 @@ public class Servidor {
         } catch (IOException e) {
             // Muestra cualquier excepción ocurrida durante la ejecución
             e.printStackTrace();
+        } finally {
+            try {
+                if (servidor != null) {
+                    servidor.close(); // Cerramos el ServerSocket
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
