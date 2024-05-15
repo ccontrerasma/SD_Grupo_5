@@ -165,13 +165,13 @@ public class Client {
         // try to connect to the server and return if not connected
         if (!client.start())
             return;
-        System.out.println("\nHello.! Welcome to the chatroom.");
+        System.out.println("\nHola.! Bienvenido a la sala de chat.");
         System.out.println("Instructions:");
-        System.out.println("1. Simply type the message to send broadcast to all active clients");
-        System.out.println("2. Type '@username<space>yourmessage' without quotes to send message to desired client");
+        System.out.println("1. Simplemente escriba el mensaje para enviar la transmisión a todos los clientes activos");
+        System.out.println("2. Escriba '@nombredeusuario<espacio>sumensaje' sin comillas para enviar el mensaje al cliente deseado");
 
-        System.out.println("3. Type 'WHOISIN' without quotes to see list of active clients");
-        System.out.println("4. Type 'LOGOUT' without quotes to logoff from server");
+        System.out.println("3. Escriba 'WHOISIN' sin comillas para ver la lista de clientes activos");
+        System.out.println("4. Escriba 'LOGOUT' sin comillas para cerrar sesión en el servidor");
         // infinite loop to get the input from the user
         while (true) {
             System.out.print("> ");
