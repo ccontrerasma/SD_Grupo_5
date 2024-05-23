@@ -2,6 +2,7 @@ package SD_Grupo_5.Lab04_Anexo1;
 
 import java.rmi.*;
 
+//Clase para llenar datos en la farmacia.
 public class ServerSide {
     public static void main(String[] args) throws Exception {
         Stock pharmacy = new Stock();

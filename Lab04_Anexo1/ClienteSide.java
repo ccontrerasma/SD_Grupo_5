@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class ClienteSide {
+public class ClienteSide {//Codigo para la vista del cliente.
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        StockInterface pharm = (StockInterface) Naming.lookup("PHARMACY");
+        StockInterface pharm = (StockInterface) Naming.lookup("PHARMACY");//Conexion.
         System.out.println("Ingresa la opcion\n" +
 
                 "1: Listar productos\n" +

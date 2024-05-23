@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+//Clase para la implementacion del servicio remoto.
 public class Stock extends UnicastRemoteObject implements StockInterface {
     private HashMap<String, MedicineInterface> medicines = new HashMap<>();
 
@@ -11,6 +12,7 @@ public class Stock extends UnicastRemoteObject implements StockInterface {
         super();
     }
 
+    //Metodo para agregar medicinas al hash.
     public void addMedicine(String name, float price, int stock) throws Exception {
         medicines.put(name, new Medicine(name, price, stock));
     }
@@ -19,7 +21,7 @@ public class Stock extends UnicastRemoteObject implements StockInterface {
     public MedicineInterface buyMedicine(String name, int amount) throws Exception {
         MedicineInterface aux = medicines.get(name);
         if (aux == null) {
-            throw new Exception("Imposible to find " + name);
+            throw new Exception("Imposible encontrar. " + name);
         }
         MedicineInterface element = aux.getMedicine(amount);
         return element;

@@ -9,7 +9,9 @@ import java.rmi.server.UnicastRemoteObject;
  * @author rventurar
  *
  */
-public class Medicine extends UnicastRemoteObject implements MedicineInterface {
+
+//Clase para la implementacion del servicio remoto.
+ public class Medicine extends UnicastRemoteObject implements MedicineInterface {
     private String name;
     private float unitPrice;
     private int stock;
@@ -28,9 +30,9 @@ public class Medicine extends UnicastRemoteObject implements MedicineInterface {
     @Override
     public Medicine getMedicine(int amount) throws Exception {
         if (this.stock <= 0)
-            throw new StockException("Stock empty");
+            throw new StockException("Stock vacio");
         if (this.stock - amount < 0)
-            throw new StockException("Stock not amount of medicine");
+            throw new StockException("Stock, no cantidad de medicamento.");
         this.stock -= amount;
         Medicine aux = new Medicine(name, unitPrice * amount, stock);
         return aux;
@@ -42,6 +44,6 @@ public class Medicine extends UnicastRemoteObject implements MedicineInterface {
     }
 
     public String print() throws Exception {
-        return this.name + "\nPrice: " + this.unitPrice + "\nStock: " + this.stock;
+        return this.name + "\nPrecio: " + this.unitPrice + "\nStock: " + this.stock;
     }
 }
