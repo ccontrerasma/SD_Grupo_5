@@ -1,0 +1,20 @@
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+// Servidor para el sistema de tarjetas de crédito
+public class ServidorTarjetaCredito {
+    public static void main(String[] args) {
+        try {
+            // Crea la implementación
+            SistemaTarjetaCredito sistemaTarjeta = new SistemaTarjetaCredito();
+            // Crea el registro RMI en el puerto 5001
+            Registry registro = LocateRegistry.createRegistry(5001);
+            // Vincula la implementación al registro con el nombre "SistemaTarjetaCredito"
+            registro.rebind("SistemaTarjetaCredito", sistemaTarjeta);
+            System.out.println("El Sistema de Tarjetas de Crédito está listo.");
+        } catch (Exception e) {
+            System.err.println("Excepción del servidor: " + e.toString());
+            e.printStackTrace();
+        }
+    }
+}
